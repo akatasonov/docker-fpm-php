@@ -1,6 +1,6 @@
 FROM	php:fpm-alpine
 
-LABEL	maintainer "https://github.com/hermsi1337"
+LABEL	maintainer "https://github.com/akatasonov"
 
 # intl, zip, soap
 RUN apk add --update --no-cache libintl icu icu-dev libxml2-dev \
@@ -63,6 +63,16 @@ RUN apk add --update --no-cache autoconf g++ libtool make pcre-dev libssh2 libss
     && pecl install ssh2-1 \
     && docker-php-ext-enable ssh2 \
     && apk del autoconf g++ libtool make pcre-dev
+
+# Phalcon
+RUN apk add --update --no-cache autoconf g++ libtool make pcre-dev git \
+    && docker-php-source extract \
+    && git clone https://github.com/phalcon/cphalcon /usr/src/php/ext/cphalcon \
+    && cd /usr/src/php/ext/cphalcon/build \
+    && ./install \
+    && docker-php-source delete \
+    && echo 'extension=phalcon.so' > /usr/local/etc/php/conf.d/30-phalcon.ini \
+    && apk del autoconf g++ libtool make pcre-dev git
 
 # set recommended opcache PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php

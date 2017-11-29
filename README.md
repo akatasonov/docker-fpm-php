@@ -3,6 +3,7 @@
 ### Overview
 This is a Dockerfile/image to build a container for FPM-PHP.
 Most of the regular needed modules (apcu, opcache, php-redis, etc.) are built in and configured like suggested on [php.net](https://secure.php.net/).<br>
+Additionally Phalcon framework is installed as a module.<br>
 
 ### Features
 * intl, zip, soap
@@ -15,6 +16,7 @@ Most of the regular needed modules (apcu, opcache, php-redis, etc.) are built in
 * apcu ([configuration reference](https://secure.php.net/manual/en/apcu.configuration.php))
 * imagick
 * ssh2
+* phalcon
 
 ### Basic Usage
 This Image is intended to be used along with an external webserver container like apache or nginx.
