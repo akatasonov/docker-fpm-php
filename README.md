@@ -8,7 +8,7 @@ Additionally Phalcon framework is installed as a module.<br>
 ### Features
 * intl, zip, soap
 * mysqli, pdo, pdo_mysql, pdo_pgsql
-* mcrypt, gd, iconv
+* sodium, gd, iconv
 * gmp
 * php-redis
 * memcached
@@ -16,7 +16,7 @@ Additionally Phalcon framework is installed as a module.<br>
 * apcu ([configuration reference](https://secure.php.net/manual/en/apcu.configuration.php))
 * imagick
 * ssh2
-* phalcon
+* phalcon 3.4
 
 ### Basic Usage
 This Image is intended to be used along with an external webserver container like apache or nginx.
